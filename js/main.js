@@ -1,11 +1,11 @@
 var app, rdio,
 	PRODUCTION = location.host.indexOf('mit.edu') > -1,
 	WAMI_API_KEY = PRODUCTION ?
-		'79f691fb6aa76373f9e27e8141c46244' :
+		'79f691fb6aa76373f9e27e8141c46244' : // web.mit.edu
 		'bdc9a99b5c3040a52085a805a750a788',
 	SONG_KEY = 'p593',
 	RDIO_API_KEY = PRODUCTION ?
-		'GAtQV9JaAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbndlYi5taXQuZWR1fznPhochjLih8Tuo45FA1w==' :
+		'GAtQV9JaAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbndlYi5taXQuZWR1fznPhochjLih8Tuo45FA1w==' : // web.mit.edu
 		'GAlQV84vAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdDyE4GUoFCbj20JwxWIa1Ps=';
 $(function() {
 	// JSGF grammar
