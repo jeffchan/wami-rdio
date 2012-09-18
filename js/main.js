@@ -17,7 +17,7 @@ $(function() {
 		"	(play | start | resume) {[cmd=play]} [<radio>] |\n"+
 		"	pause {[cmd=pause]} [<radio>] |\n"+
 		"	previous {[cmd=previous]} [<song>] |\n"+
-		"	next  {[cmd=next]} [<song>]\n"+
+		"	(next | skip) {[cmd=next]} [<song>]\n"+
 		"	);\n"+
 		"<song> = track | song | jam;\n"+
 		"<radio> = music | radio | <song>;";
