@@ -1,4 +1,12 @@
-var app, rdio;
+var app, rdio,
+	PRODUCTION = location.host.indexOf('mit.edu') > -1,
+	WAMI_API_KEY = PRODUCTION ?
+		'6373a5b065a76284c1732ca086d1cb38' :
+		'bdc9a99b5c3040a52085a805a750a788',
+	SONG_KEY = 'p593',
+	RDIO_API_KEY = PRODUCTION ?
+		'GAdQV82bAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbm1pdC5lZHXR85yUolLoEl9WPpz5mOZd' :
+		'GAlQV84vAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdDyE4GUoFCbj20JwxWIa1Ps=';
 $(function() {
 	// JSGF grammar
 	var jsgf = 
@@ -22,13 +30,9 @@ $(function() {
 
 	var isPlaying = false,
 		paused = false,
-		songKey = 'p593',
-		apiKey = location.host.indexOf('mit.edu') > -1 ?
-			'GAdQV82bAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbm1pdC5lZHXR85yUolLoEl9WPpz5mOZd' :
-			'GAlQV84vAB8oJWR2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdDyE4GUoFCbj20JwxWIa1Ps=',
 		duration = 1;
 
-	rdio = $('#rdio').rdio(apiKey);
+	rdio = $('#rdio').rdio(RDIO_API_KEY);
 	$('#rdio').on('positionChanged.rdio', function(e, position) {
 		// console.error(position);
 		// $('#position').css('width', Math.floor(100*position/duration)+'%');
@@ -50,7 +54,7 @@ $(function() {
 				if (paused) {
 					rdio.play();
 				} else {
-					rdio.play(songKey);
+					rdio.play(SONG_KEY);
 				}
 				isPlaying = true;
 				paused = false;
@@ -79,7 +83,7 @@ $(function() {
 	// Handlers are functions which are called for various events:
   	var options = {
 		guiID: 'AudioContainer',
-		devKey: 'bdc9a99b5c3040a52085a805a750a788',
+		devKey: WAMI_API_KEY,
 		grammar: grammar,
 		onReady: function() {},
 		onRecognition: function(result) {
