@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Top 40 Radio!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="http://wami.csail.mit.edu/wami-2.0.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <div class="container">
+
+            <div class="hero-unit">
+                <h1>Top 40 Radio!</h1>
+                <p>Powered by Rdio&reg;</p>
+                
+                <div id="AudioContainer"></div>
+                <span id="command" class="input-xlarge uneditable-input"></span>
+
+                <div class="row-fluid info-container">
+                    <div class="thumbnail instr span6">
+                        <h3>Few instructions to try:</h3>
+                        <ul>
+                            <li>Play music</li>
+                            <li>Stop music</li>
+                            <li>Previous track</li>
+                            <li>Next song</li>
+                            <li>Resume radio</li>
+                            <li>Pause</li>
+                        </ul>
+                    </div>
+                    <div class="thumbnail album-info span6">
+                        <img id="art" src="http://placehold.it/200x200" height="200" width="200" />
+                        <h3><b>Track: </b><span id="track"></span></h3>
+                        <p><b>Album: </b><span id="album"></span></p>
+                        <p><b>Artist: </b><span id="artist"></span></p>
+                    </div>
+                </div>
+
+                <div id="rdio"></div>
+            </div>
+
+            <hr>
+
+            <footer>
+                <p>by Jeff Chan jeffchan@mit.edu</p>
+            </footer>
+
+        </div> <!-- /container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
+        <script src="js/vendor/jquery.rdio.min.js"></script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

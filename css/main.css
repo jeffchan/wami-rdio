@@ -1,0 +1,23 @@
+.info-container {
+	margin-top:30px;
+}
+
+.info-container > div {
+	height:210px;
+}
+
+.album-info img {
+	float:left;
+	margin-right:20px;
+	width:200px;
+	height:200px;
+}
+
+#AudioContainer {
+	position:absolute;
+}
+
+#command {
+	position:relative;
+	left:60px;
+}
