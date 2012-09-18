@@ -1,7 +1,7 @@
 var app, rdio,
 	PRODUCTION = location.host.indexOf('mit.edu') > -1,
 	WAMI_API_KEY = PRODUCTION ?
-		'6373a5b065a76284c1732ca086d1cb38' :
+		'79f691fb6aa76373f9e27e8141c46244' :
 		'bdc9a99b5c3040a52085a805a750a788',
 	SONG_KEY = 'p593',
 	RDIO_API_KEY = PRODUCTION ?
