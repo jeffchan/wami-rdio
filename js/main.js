@@ -17,7 +17,8 @@ $(function() {
 		"	(play | start | resume) {[cmd=play]} [<radio>] |\n"+
 		"	pause {[cmd=pause]} [<radio>] |\n"+
 		"	previous {[cmd=previous]} [<song>] |\n"+
-		"	(next | skip) {[cmd=next]} [<song>]\n"+
+		"	(next | skip) {[cmd=next]} [<song>] |\n"+
+		"	shuffle {[cmd=shuffle]} [<song>]\n"+
 		"	);\n"+
 		"<song> = track | song | jam;\n"+
 		"<radio> = music | radio | <song>;";
@@ -28,7 +29,8 @@ $(function() {
 		aggregate : true
 	};
 
-	var isPlaying = false,
+	var rdioReady = false,
+		isPlaying = false,
 		paused = false,
 		duration = 1;
 
@@ -77,6 +79,10 @@ $(function() {
 			case 'next':
 				rdio.next();
 				break;
+			case 'shuffle':
+				rdio.setShuffle(true);
+				rdio.next();
+				break;
 		}
 	};
 
@@ -99,13 +105,22 @@ $(function() {
 		onError: function(type, message) {
 			console.error("WAMI error: type  = " + type + ", message = " + message);	
 		},
-		onTimeout: function() {}
+		onTimeout: function() {},
+		onEvent: function(state, event, data) {
+			if (rdioReady) {
+				if (state == Wami.state.RECORD) {
+					rdio.setVolume(0.2);
+				} else if (state == Wami.state.IDLE) {
+					rdio.setVolume(1);
+				}
+			}
+		}
 	};
 
 	app = new Wami.App(options);
 
-	$('#rdio').on('ready.rdio', function() {
-		// $(this).rdio().play('a171827');
-		// $(this).rdio().play('p593');
+	$('#rdio').on('ready.rdio', function(event, userinfo) {
+		console.log('RDIO INFO', userinfo);
+		rdioReady = true;
 	});
 });
